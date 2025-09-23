@@ -5,7 +5,7 @@ set -o errexit
 bundle install
 
 # Run pending migrations
-bin/rails db:migrate
+rails db:migrate
 
 # Seed database
-bin/rails db:seed
+rails db:seed

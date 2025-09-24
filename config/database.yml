@@ -11,7 +11,7 @@ test:
   <<: *default
   database: book_api_test
 
-production:
+production: &production
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
 

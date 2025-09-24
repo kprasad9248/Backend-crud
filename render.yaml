@@ -10,6 +10,7 @@ services:
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate" # only on paid plans
     startCommand: "bundle exec rails server -b 0.0.0.0 -p $PORT"
     envVars:
       - key: DATABASE_URL
@@ -19,4 +20,3 @@ services:
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
-        value: "2"

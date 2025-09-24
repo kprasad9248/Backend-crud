@@ -1,11 +1,12 @@
 #!/bin/bash
-set -o errexit
+set -o errexit  # Exit immediately if a command exits with a non-zero status
 
 # Install gems
 bundle install
 
-# Run pending migrations
-rails db:migrate
+# Precompile Rails assets
+bundle exec rails assets:precompile
+bundle exec rails assets:clean
 
-# Seed database
-rails db:seed
+# Seed the database
+bundle exec rails db:seed
